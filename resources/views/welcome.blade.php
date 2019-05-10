@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/background.css">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <title>My Portfolio</title>
 
         <!-- Fonts -->
@@ -40,7 +40,7 @@
             
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #FCFAF2;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -72,13 +72,13 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 7vw;
                 position: relative;
                 z-index: 2; 
             }
 
             .links > a {
-                color: #636b6f;
+                color: #FCFAF2;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -95,36 +95,32 @@
         </style>
     </head>
     <body>
-        <div class="video-container">
-              <video src="/videos/Coffe.mp4" poster="" autoplay loop></video>
-        </div>
-        <div class="conteiner">
-            
-            
-            <div class="row">
-                <div class="flex-center position-ref full-height">
-                    @if (Route::has('login'))
-                        <div class="top-right links">
-                            @auth
-                                <a href="{{ url('/home') }}">Home</a>
-                            @else
-                                <a href="{{ route('login') }}">Login</a>
-                                <a href="{{ route('register') }}">Register</a>
-                            @endauth
-                        </div>
-                    @endif
         
-                    <div class="content jumbotron">
-                        <div class="title m-b-md">
-                            Hello,My Portfolio.
+        <div class="video-container">
+              <video src="/videos/fps30,placebo(Coffee).mp4" poster="" autoplay loop></video>
+        </div>
+    
+            
+            
+            
+                <div class="flex-center position-ref full-height">
+                    
+                        <div class="top-right links">
+                          
+                        </div>
+                    
+                <div class="row">
+                    <div class="content col-sm-12">
+                        <div class="title m-b-md center-jumbotron col-sm-12">
+                            Welcome My Portfolio.
                         </div>
         
                         <div class="links">
-                            <a href="https://laravel.com/docs">Documentation</a>
-                            <a href="https://laracasts.com">Laracasts</a>
-                            <a href="https://laravel-news.com">News</a>
-                            <a href="https://forge.laravel.com">Forge</a>
-                            <a href="https://github.com/laravel/laravel">GitHub</a>
+                            {!! link_to_route('portfolios.portfolios','Portfolios',null,['class'=>'']) !!}
+                            <a href="https://laracasts.com">About</a>
+                            {!! link_to_route('contacts.create','Contact',null,['class'=>'']) !!}
+                            <a href="https://github.com/Himonoxx">GitHub</a>
+                            {!! link_to_route('users.index','Developper',[],['class'=>'']) !!}
                         </div>
                     </div>
                 </div>
