@@ -1,0 +1,39 @@
+/* 記事背景に色指定がある場合 */
+#container #content {
+   background: transparent;
+}
+/* 見出しのデザイン */
+.midashi {
+    position: relative;
+    margin: 10px;
+    padding: 8px 25px 8px 25px;
+    background: none;
+    text-transform: uppercase;
+    color:#FFFFFB;
+    font-size: 140%;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+
+}
+.midashi:before,
+.midashi::after {
+    border-radius: 4px;
+    box-shadow: 0 1px 4px #B28FCE;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.midashi::before {
+    background-color: #B28FCE;
+    left: 0;
+    top: 4px;
+    z-index: -1;
+}
+.midashi::after {
+    background-color: #B28FCE;
+    top: 5px;
+    left: 5px;
+    z-index: -2;
+}

@@ -15,11 +15,15 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
             $table->string('title');
             $table->string('comment')->nullable();
             $table->string('siteurl');
             $table->string('image')->nullable();
             $table->timestamps();
+            
+            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

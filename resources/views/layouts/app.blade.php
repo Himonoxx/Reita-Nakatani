@@ -10,12 +10,17 @@
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="/css/box.css">
         <link rel="stylesheet" href="/css/logo_font.css">
+        <link rel="stylesheet" href="/css/font.css">
+        <link rel="stylesheet" href="/css/midashi.css">
+        <link rel="stylesheet" href="/css/child_midashi.css">
         
     </head>
 
     <body>
-        <div class="picture" ><div class="logo_font text-center mb-0" style="font-size:64px; color:#F5F5DC; height:33vh;">Reita Nakatani Official Site</div>
-        @include('commons.navbar')
+        <div class="stickey-top">@include('commons.navbar')</div>
+        <div class="picture" ><div class="logo_font text-center mb-0" style="font-size:64px; color: #E9CD4C; height:50vh;">Reita Nakatani Official Site</div>
+        
+        
         
         </div>
             @include('commons.error_messages')
@@ -28,4 +33,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
     </body>
+    
+<footer class="fixed-bottom text-center"><small class="mx-auto">Copyright © Reita Nakatani All Rights Reserved. </small></footer>    
 </html>
+

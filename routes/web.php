@@ -19,8 +19,12 @@ Route::post('portfolios/{id}/imagestore','PortfoliosController@imageStore')->nam
 
 Route::resource('portfolios','PortfoliosController');
 Route::resource('contacts','ContactsController');
+Route::get('contacts/{id}/reply','ContactsController@reply')->name('contacts.reply');
+
 
 Route::resource('users','UsersController');
+
+Route::resource('abouts','AboutsController');
 
 
 Route::get('signup','Auth\RegisterController@showRegistrationForm')->name('signup.get');

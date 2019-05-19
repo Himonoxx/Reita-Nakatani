@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="row">
-        <h1 class="col-sm-10 offset-1"><b>Contact</b></h1>
+    <div class="col-sm-10 offset-1">
+        <h1 class="midashi"><b>Contact</b></h1>
+    </div>
     <div class="card col-sm-10 offset-1">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">

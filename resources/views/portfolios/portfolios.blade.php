@@ -1,101 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
- <div class="col-sm-10 offset-1 mt-0">
-    <h1 class="mb-0"><b>Portfolios</b></h1>
+ <div class="col-sm-10 offset-sm-1 mt-5">
+    <h1 class="midashi"><b>Portfolios</b></h1>
   </div>
-        <div class="card col-sm-10 offset-1 mt-0">
+        <div class="card col-sm-10 offset-sm-1 mt-0">
             <div class="card-deck mt-5 mb-5">
-              <div class="card bg-secondary text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted mb-auto">Last updated 3 mins ago</small></p>
-                  <div class="mb-auto">
-                    <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-                </div>
-              </div>
-              
-              <div class="card bg-secondary text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                  <p class="card-text mb-auto"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-              </div>
-              
-              <div class="card bg-secondary text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <div class="d-flex flex-column-reverse">
-                      <button class="btn btn-light text-dark btn-block">Visit Website</button>
+               <?php $cnt=1; ?>
+               @if(count($portfolios)<=0)
+                 <h1 class="text-center mx-auto">Nothing Portfolios</h1>
+                @endif
+              @foreach($portfolios as $portfolio)
+          
+                @if($cnt % 4 == 0)
+                    <div class="card bg-secondary text-light">
+                      @if($portfolio->image == null)
+                        <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
+                      @else
+                        <img class="card-img-top" src={{ $portfolio->image }} alt="Card image cap">
+                      @endif
+                      <div class="card-body">
+                        <h4 class="card-title">{{ $portfolio->title }}</h4>
+                        <p class="card-text">{{ $portfolio->comment }}</p>
+                        <p class="card-text"><small class="text-light mb-auto">{{ date('Y.m.d',$portfolio->timestamps) }}</small></p>
+                        <div class="mb-auto">
+                          <a class="btn btn-light text-dark btn-block" href={{ $portfolio->siteurl }} role="button">Visit Website</a>
+                          @if(Auth::check())
+                            @if(Auth::user()->id == $portfolio->user_id)
+                              {!! link_to_route('portfolios.edit','Edit',['id'=>$portfolio->id],['class'=>'btn btn-info text-dark btn-block']) !!}
+                            @endif
+                          @endif
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <div class="card-deck mt-5 mb-5">
+                @else
+                
+                  <div class="card bg-secondary text-light">
+                    @if($portfolio->image == null)
+                      <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
+                    @else
+                      <img class="card-img-top" src={{ $portfolio->image }} alt="Card image cap">
+                    @endif
+                    <div class="card-body">
+                      <h4 class="card-title">{{ $portfolio->title }}</h4>
+                      <p class="card-text">{{ $portfolio->comment }}</p>
+                      <p class="card-text"><small class="text-light mb-auto">{{ $portfolio->timestamps }}</small></p>
+                      <div class="mb-auto">
+                        <a class="btn btn-light text-dark btn-block" href={{ $portfolio->siteurl }} role="button">Visit Website</a>
+                        @if(Auth::check())
+                          @if(Auth::user()->id == $portfolio->user_id)
+                            {!! link_to_route('portfolios.edit','Edit',['id'=>$portfolio->id],['class'=>'btn btn-info text-dark btn-block']) !!}
+                          @endif
+                        @endif
+                    </div>
+                    </div>
+                  </div>
+                
+
+                  
+                
+                @endif
+                <?php $cnt=$cnt+1; ?>
+                @endforeach
                 </div>
-              </div>
               
-              <div class="card bg-info text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-              </div>
               
-            </div>
-            
-            <div class="card-deck mt-5 mb-5">
-              <div class="card bg-info text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-              </div>
-              
-              <div class="card bg-info text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-              </div>
-              
-              <div class="card bg-info text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-              </div>
-              
-              <div class="card bg-info text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-              </div>
     
     
 </div>
-
 
 
 

@@ -1,12 +1,12 @@
 
 .picture { 
     
-    background:url(/images/bg-black06.jpg) 
+    background:url(/images/bg-purple.jpg) 
     center no-repeat; 
     background-size: cover;
     margin:0;
     padding:0;
     bottom:0;
-    height:40vh;
+    height:50vh;
     
 }

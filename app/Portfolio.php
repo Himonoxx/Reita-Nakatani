@@ -13,9 +13,9 @@ class Portfolio extends Model
     ];
     
     
-    public function users()
+    public function user()
     {
-        return belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
     
 }

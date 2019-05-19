@@ -17,7 +17,12 @@
                         
                         <div class="form-group">
                             {!! Form::label('categoly', 'Categoly') !!}
-                            {!! Form::select('categoly', ['人事・採用関係'=>'人事・採用関係','ご質問'=>'ご質問','その他お問い合わせ'=>'その他お問い合わせ']) !!}
+                            {!! Form::select('categoly', ['人事・採用関係'=>'人事・採用関係','ご質問'=>'ご質問','その他お問い合わせ'=>'その他お問い合わせ'],['class'=>'w-auto']) !!}
+                        </div>
+                        
+                        <div class="form-group">
+                            {!! Form::label('title', '件名') !!}
+                            {!! Form::text('title', old('title'), ['class' => 'form-control']) !!}
                         </div>
                         
                         <div class="form-group">

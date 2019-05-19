@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact;
+use Auth;
+use Mail;
+use App\Mail\ContactMail;
 
 class ContactsController extends Controller
 {
@@ -14,10 +17,11 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        $contact=new Contact;
+        $contacts=Contact::orderBy('created_at','desc')->paginate(15);
         
-        return view('contacts.contact_us',[
-        'contact'=>$contact,
+        
+        return view('contacts.index',[
+        'contacts'=>$contacts,
         ]);
     }
 
@@ -52,7 +56,11 @@ class ContactsController extends Controller
         $contact->email=$request->email;
         $contact->categoly=$request->categoly;
         $contact->content=$request->content;
+        $contact->title=$request->title;
         $contact->save();
+        
+        $contact=$request->all();
+        Mail::to($contact['email'])->send(new ContactMail($contact));
         
         return redirect('/');
     }
@@ -65,7 +73,9 @@ class ContactsController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact=Contact::find($id);
+        
+        return view('contacts.show',['contact'=>$contact]);
     }
 
     /**
@@ -99,6 +109,35 @@ class ContactsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact=Contact::find($id);
+        if(Auth::check())
+        {
+            $contact->delete();
+        }else{
+            return redirect()->route('login')
+            ->withInput()
+            ->withErrors(array($id,'削除するためにはログインしてください。'));
+        }
+        
+        return view('contact.index');
+        
+        
     }
+    
+    public function reply($id)
+    {
+        $contact=Contact::find($id);
+        $user=Auth::user();
+        
+        return view('commons.html_gmail',[
+            
+            'contact'=>$contact,
+            'user'=>$user
+            
+            ]);
+        
+    }
+
+    
+    
 }

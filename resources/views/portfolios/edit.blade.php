@@ -1,30 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="col-sm-10 offset-1">ポートフォリオ編集ページ</h1>
+<div class="col-sm-10 offset-1 ">
+<h1 class="midashi">ポートフォリオ編集ページ</h1>
+</div>
 <div class="card col-sm-10 offset-1 pt-5 pb-5">
     <div class="d-flex">
         <div class="col-sm-5 mx-auto">
-            <h1 class="text-center">選択しているポートフォリオ</h1>
+            <h1 class="text-center c-midashi">Select Portfolio</h1>
         </div>
         
         <div class="col-sm-5 mx-auto">
-            <h1 class="text-center">編集フォーム</h1>
+            <h1 class="text-center c-midashi">Edit Form</h1>
         </div>
     </div>
     
     <div class="d-flex">
         <div class="col-sm-5 mx-auto">
-            <div class="card bg-secondary text-light">
-                <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted mb-auto">Last updated 3 mins ago</small></p>
-                  <div class="mb-auto">
-                    <button class="btn btn-light text-dark btn-block">Visit Website</button>
-                </div>
-                </div>
+                <div class="card bg-secondary text-light">
+                      @if($portfolio->image == null)
+                        <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
+                      @else
+                        <img class="card-img-top" src={{ $portfolio->image }} alt="Card image cap">
+                      @endif
+                    <div class="card-body">
+                        <h4 class="card-title">{{ $portfolio->title }}</h4>
+                        <p class="card-text">{{ $portfolio->comment }}</p>
+                        <p class="card-text"><small class="text-muted mb-auto">{{ $portfolio->timestamps }}</small></p>
+                        <div class="mb-auto">
+                          <a class="btn btn-light text-dark btn-block" href={{ $portfolio->siteurl }} role="button">Visit Website</a>
+                        </div>
+                    </div>
               </div>
             
         </div>
@@ -41,7 +47,7 @@
         
                         <div class="form-group">
                             {!! Form::label('comment', 'Comment') !!}
-                            {!! Form::textarea('content',null, ['class' => 'form-control']) !!}
+                            {!! Form::textarea('comment',null, ['class' => 'form-control']) !!}
                         </div>
                         
                         <div class="form-group">
@@ -50,13 +56,19 @@
                         </div>
                         
                         
-        
+                    
                         {!! Form::submit('Edit', ['class' => 'btn btn-info btn-block mb-5']) !!}
                     {!! Form::close() !!}
-                    <div>
-                        {!! Form::label('file', 'Site Capture') !!}
-                        @include('portfolios.upload',['portfilio'=>$portfolio])
-                    </div>
+                    
+                    
+                    
+                    @if(Auth::user()->id == $portfolio->user_id)
+                        <div>
+                            {!! Form::model($portfolio,['route'=>['portfolios.destroy',$portfolio->id],'method'=>'delete']) !!}
+                                {!! Form::submit('ポートフォリオを削除する',['class'=>'btn btn-warning btn-block mb-5']) !!}
+                            {!! Form::close() !!}
+                        </div>
+                    @endif
                 
         
                 </div>

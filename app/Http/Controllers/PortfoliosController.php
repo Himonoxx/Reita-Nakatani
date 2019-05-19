@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Portfolio;
+use Carbon\Carbon;
+use \Auth;
+use Storage;
 
 class PortfoliosController extends Controller
 {
@@ -40,27 +43,15 @@ class PortfoliosController extends Controller
     {
         
         $portfolio=new Portfolio;
-        $portfolio->title=$request->title;
-        $portfolio->comment=$request->comment;
-        $portfolio->siteurl=$request->siteurl;
-        if($request->file != null){
-                
-            $originalImg=$request->file;
-            $path = $request->file->store('reitasportfolio','s3');
-        
-            dd($path);
+        $request->user()->portfolios()->create([
+            'title'=>$request->title,
+            'comment'=>$request->comment,
+            'siteurl'=>$request->siteurl,
+            'user_id'=>$request->id
             
-            
-            return redirect('portfolios.index')->with('success','保存しました。');
-
-        }else{
-            return back()
-            ->withErrors(['file'=>'画像がアップロードされていないか不正なデータです。']);
-        }
+        ]);
         
-        $portfolio->save();
-        
-        return view('portfolios.portfolios');
+        return view('users.index');
     }
 
     /**
@@ -106,7 +97,7 @@ class PortfoliosController extends Controller
         
         $portfolio->save();
         
-        return redirect('portfolios.portfolios');
+        return redirect('users.index');
     }
 
     /**
@@ -117,12 +108,21 @@ class PortfoliosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $portfolio=Portfolio::find($id);
+        if(Auth::user()->id == $portfolio->user_id) 
+        {
+            $portfolio->delete();
+            
+        }
+        
+        return view('users.index');
     }
     
     public function portfolios()
     {
-        return view('portfolios.portfolios');
+        $portfolios=Portfolio::all();
+        
+        return view('portfolios.portfolios',['portfolios'=>$portfolios]);
     }
     
     public function imageStore(Request $request)
