@@ -31,8 +31,12 @@
                 @endforeach
             @endif
             </tbody>
+            
         </table>
-        {{ $contacts->render('pagination::bootstrap-4') }}
+        <div class="col-sm-10 offset-sm-1">
+            {{ $contacts->render('pagination::bootstrap-4') }}
+        </div>
+        
     </div>
     
     

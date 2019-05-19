@@ -17,10 +17,10 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li>{!! link_to_route('portfolios.create','Add Portfolios',null,['class'=>'dropdown-item']) !!}</li>
-                            <li class="dropdown-item">お問い合わせBOX</li>
+                            <li class="dropdown-item">{!! link_to_route('portfolios.create','Add Portfolios',null,['class'=>'nav-link']) !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('contacts.index','お問い合わせ受信箱',null,['class'=>'nav-link']) !!}</li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout',null,['class'=>'nav-link']) !!}</li>
                         </ul>
                 @endif
                     

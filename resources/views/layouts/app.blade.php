@@ -18,7 +18,7 @@
 
     <body>
         <div class="stickey-top">@include('commons.navbar')</div>
-        <div class="picture" ><div class="logo_font text-center mb-0" style="font-size:64px; color: #E9CD4C; height:50vh;">Reita Nakatani Official Site</div>
+        <div class="picture" ><div class="logo_font text-center mb-0" style="font-size:64px; color: #E9CD4C; height:50vh;">Reita Nakatani Portfolio Site</div>
         
         
         

@@ -117,7 +117,8 @@
         
                         <div class="links">
                             {!! link_to_route('portfolios.portfolios','Portfolios',null,['class'=>'']) !!}
-                            <a href="https://laracasts.com">About</a>
+                            {!! link_to_route('abouts.index','About',null,['class'=>'']) !!}
+                            
                             {!! link_to_route('contacts.create','Contact',null,['class'=>'']) !!}
                             <a href="https://github.com/Himonoxx">GitHub</a>
                             {!! link_to_route('users.index','Developper',[],['class'=>'']) !!}
