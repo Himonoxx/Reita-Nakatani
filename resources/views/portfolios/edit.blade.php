@@ -55,6 +55,11 @@
                             {!! Form::text('siteurl',null, ['class' => 'form-control']) !!}
                         </div>
                         
+                        <div class="form-group">
+                            {!! Form::label('image', 'Site Captue Path') !!}
+                            {!! Form::text('image',null, ['class' => 'form-control']) !!}
+                        </div>
+                        
                         
                     
                         {!! Form::submit('Edit', ['class' => 'btn btn-info btn-block mb-5']) !!}

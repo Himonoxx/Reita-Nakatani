@@ -9,7 +9,7 @@ class Portfolio extends Model
 {
     
     protected $fillable = [
-        'title', 'comment', 'siteurl','image','file'
+        'title', 'comment', 'siteurl','image','file','created_at'
     ];
     
     

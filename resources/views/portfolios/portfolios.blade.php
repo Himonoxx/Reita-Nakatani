@@ -22,7 +22,7 @@
                       <div class="card-body">
                         <h4 class="card-title">{{ $portfolio->title }}</h4>
                         <p class="card-text">{{ $portfolio->comment }}</p>
-                        <p class="card-text"><small class="text-light mb-auto">{{ date('Y.m.d',$portfolio->timestamps) }}</small></p>
+                        <p class="card-text"><small class="text-light mb-auto">date:{{ \Carbon\Carbon::createFromTimestamp($portfolio->timestamps)->format("m/d/Y") }}</small></p>
                         <div class="mb-auto">
                           <a class="btn btn-light text-dark btn-block" href={{ $portfolio->siteurl }} role="button">Visit Website</a>
                           @if(Auth::check())
@@ -46,7 +46,7 @@
                     <div class="card-body">
                       <h4 class="card-title">{{ $portfolio->title }}</h4>
                       <p class="card-text">{{ $portfolio->comment }}</p>
-                      <p class="card-text"><small class="text-light mb-auto">{{ $portfolio->timestamps }}</small></p>
+                      <p class="card-text"><small class="text-light mb-auto">{{ date_format($portfolio->created_at,'Y-m-d') }}</small></p>
                       <div class="mb-auto">
                         <a class="btn btn-light text-dark btn-block" href={{ $portfolio->siteurl }} role="button">Visit Website</a>
                         @if(Auth::check())

@@ -47,7 +47,8 @@ class PortfoliosController extends Controller
             'title'=>$request->title,
             'comment'=>$request->comment,
             'siteurl'=>$request->siteurl,
-            'user_id'=>$request->id
+            'user_id'=>$request->id,
+            'created_at'=>Carbon::now()
             
         ]);
         
@@ -94,10 +95,11 @@ class PortfoliosController extends Controller
         $portfolio->title=$request->title;
         $portfolio->comment=$request->comment;
         $portfolio->siteurl=$request->siteurl;
+        $portfolio->image=$request->image;
         
         $portfolio->save();
         
-        return redirect('users.index');
+        return view('users.index');
     }
 
     /**
@@ -120,9 +122,20 @@ class PortfoliosController extends Controller
     
     public function portfolios()
     {
-        $portfolios=Portfolio::all();
+        $portfolios=Portfolio::orderBy('created_at','desc')->get();
+        foreach($portfolios as $portfolio){
+            
+                $date=date_create($portfolio->created_at);
+                $date=date_format($date,'Y-m-d');
+                $portfolio->created_at=$date;
+            
+        }
         
-        return view('portfolios.portfolios',['portfolios'=>$portfolios]);
+        return view('portfolios.portfolios',[
+            
+            'portfolios'=>$portfolios,
+            
+            ]);
     }
     
     public function imageStore(Request $request)

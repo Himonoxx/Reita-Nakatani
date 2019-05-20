@@ -18,7 +18,7 @@
                     {!! Form::label('password', 'Password') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
-
+                {{ csrf_field() }}
                 {!! Form::submit('Log in', ['class' => 'btn btn-info btn-block']) !!}
             {!! Form::close() !!}
 

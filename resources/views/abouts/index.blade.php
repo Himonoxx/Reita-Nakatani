@@ -4,7 +4,7 @@
 <div class="col-sm-10 offset-sm-1">
     <h1 class="midashi">About</h1>
 </div>
-<div class="col-sm-10 offset-sm-1">
+<div class="col-sm-10 offset-sm-1 mb-5">
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">プロフィール</a>

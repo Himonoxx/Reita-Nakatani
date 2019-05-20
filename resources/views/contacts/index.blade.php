@@ -23,7 +23,7 @@
             <tbody>
                 @foreach($contacts as $contact)
                     <tr class="table-info">
-                        <td>2019/05/14/17:06</td>
+                        <td>{{ date_format($contact->created_at,'Y/m/d-H:i')}}</td>
                         <td>{{ $contact->categoly }}</td>
                         <td>{{ $contact->name }}</td>
                         <td>{!! link_to_route('contacts.show',$contact->title,$contact->id,['class'=>'text-dark']) !!}</td>
