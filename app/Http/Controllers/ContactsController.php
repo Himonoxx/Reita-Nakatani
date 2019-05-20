@@ -61,6 +61,7 @@ class ContactsController extends Controller
         
         $contact=$request->all();
         Mail::to($contact['email'])->send(new ContactMail($contact));
+        Mail::to('himono55@gmail.com')->send(new ContactMail($contact));
         
         return view('contacts.complete');
     }

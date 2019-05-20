@@ -36,5 +36,7 @@ class ContactMail extends Mailable
         ->subject('受付完了のご連絡')
         ->view('contacts.mail')
         ->with(['contact' => $this->contact]);
+        
+        
     }
 }
