@@ -8,6 +8,7 @@ use Auth;
 use Mail;
 use App\Mail\ContactMail;
 
+
 class ContactsController extends Controller
 {
     /**
@@ -60,6 +61,7 @@ class ContactsController extends Controller
         $contact->save();
         
         $contact=$request->all();
+        
         Mail::to($contact['email'])->send(new ContactMail($contact));
         Mail::to('himono55@gmail.com')->send(new ContactMail($contact));
         

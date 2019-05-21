@@ -7,17 +7,22 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+use Sichikawa\LaravelSendgridDriver\SendGrid;
+
+
 class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    
+    use SendGrid;//これ大事
+    protected $contact;
     /**
      * Create a new message instance.
      *
      * @return void
      */
      
-    protected $contact;
+   
     
     public function __construct($contact)
     {
