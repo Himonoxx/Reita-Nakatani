@@ -12,7 +12,9 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.5.*",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "phpmailer/phpmailer":"dev-master"
+        "phpmailer/phpmailer": "dev-master",
+        "s-ichikawa/laravel-sendgrid-driver": "^2.0",
+        "sendgrid/sendgrid": "2.0.5"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'sendgrid' => [
+        'api_key' => env('SENDGRID_API_KEY'),//sendgrid追加：19年5月21日
+    ],
+
 
 ];
