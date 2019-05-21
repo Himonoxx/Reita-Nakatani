@@ -97,7 +97,7 @@
     <body>
         
         <div class="video-container">
-              <video src="/videos/fps30,placebo(Coffee).mp4" poster="" autoplay loop></video>
+              <video src="videos/fps30,placebo(Coffee).mp4" poster="videos/fps30_placebo_Coffee.gif" autoplay loop></video>
         </div>
     
             
