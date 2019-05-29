@@ -6,17 +6,10 @@
 </div>
 <div class="card col-sm-10 offset-1 pt-5 pb-5">
     <div class="d-flex">
-        <div class="col-sm-5 mx-auto">
-            <h1 class="text-center c-midashi">Select Portfolio</h1>
-        </div>
-        
-        <div class="col-sm-5 mx-auto">
-            <h1 class="text-center c-midashi">Edit Form</h1>
-        </div>
-    </div>
     
-    <div class="d-flex">
+    <div class="res">
         <div class="col-sm-5 mx-auto">
+            <h4 class="c-midashi">Select Portfolio</h1>
                 <div class="card bg-secondary text-light">
                       @if($portfolio->image == null)
                         <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
@@ -35,8 +28,9 @@
             
         </div>
         
-        <div class="card col-sm-5 mx-auto">
-            <div class="row">
+        <div class="col-sm-5 mx-auto">
+            <h4 class="c-midashi">Edit Form</h1>
+            <div class="card row">
                 <div class="col-sm-10 offset-sm-1 pt-3">
         
                     {!! Form::model($portfolio, ['route' => ['portfolios.update', $portfolio->id], 'method' => 'put']) !!}
