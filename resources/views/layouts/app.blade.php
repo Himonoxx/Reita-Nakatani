@@ -13,10 +13,22 @@
         <link rel="stylesheet" href="/css/font.css">
         <link rel="stylesheet" href="/css/midashi.css">
         <link rel="stylesheet" href="/css/child_midashi.css">
+        <link rel="stylesheet" href="/css/flex.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="/js/disp.js"></script>
         
     </head>
 
     <body>
+        <?php 
+            if(isset($item)){
+        
+            $item=$_POST['item'];
+            echo '変数の値は：$item';
+                
+            }
+            
+        ?>
         <div class="stickey-top">@include('commons.navbar')</div>
         <div class="picture" ><div class="logo_font text-center mb-0" style="font-size:64px; color: #E9CD4C; height:50vh;">Reita Nakatani Portfolio Site</div>
         

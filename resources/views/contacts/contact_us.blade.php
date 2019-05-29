@@ -11,8 +11,8 @@
                 <h4>各種お問い合わせ、ご質問等は以下のフォーム画面よりお願い致します。</h4>
             </li>
             <li class="list-group-item">
-                    <div class="d-flex">
-                        <div class=" card card-body col-sm-6 mr-2 border-info">
+                    <div class="res">
+                        <div class=" card card-body col-sm-6 mr-2">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item"><h4>Tell : 　準備中　</h4></li>
                                 <li class="list-group-item"><h4>Address : 　準備中　</h4></li>

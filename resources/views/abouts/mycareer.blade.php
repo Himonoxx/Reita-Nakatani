@@ -1,7 +1,8 @@
 <div class="card col-sm-12 mb-2 pb-3">
     <h4 class="c-midashi">プロフィール</h4>
     
-    <div class="d-flex">
+    
+    <div class="res">
         <div class="col-sm-5 mr-2">
             <img class="card-img-top img-thumbnail" src="images/prof_after.jpg">
         </div>
@@ -9,9 +10,9 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><b>名前</b><br>中谷　嶺太（なかたに　れいた）　あだ名は「ひもの」「れいちゃん」</li>
         <li class="list-group-item"><b>生年月日</b><br>1993年3月5日生まれ (26歳)</li>
+        <li class="list-group-item"><b>使用言語</b><br>PHP(Laravel),Python</li>
         <li class="list-group-item"><b>趣味・特技</b><br>歌を歌う事、バスケットボール、バンド活動、ファッション、ネットゲームを楽しむ</li>
         <li class="list-group-item"><b>好きな言葉・座右の銘</b><br>必死に生きてこそ、その生涯は光を放つ（織田信長）</li>
-        <li class="list-group-item"><b>自分の性格を一言で表すと？</b><br>楽観的だけど陰で落ち込むタイプ</li>
         <li class="list-group-item"><b>メッセージ</b><br>皆さんここまで見て頂きありがとうございます。<br>
                                                     日々勉強中ではありますが、今以上に便利なサービスを作れるように努力していきたいと思っております。<br><br>
                                                     このサイトを見て、私自身にご興味を持っていただけた方、またご質問やご相談等ございましたらContactタブからお問い合わせ頂ければこちらより直接返信致します。<br><br>
