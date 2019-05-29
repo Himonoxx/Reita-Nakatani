@@ -5,7 +5,7 @@
     <h1 class="midashi">新規作成画面</h1>
 </div>
 
-<div class="card col-sm-10 offset-1 pt-5 pb-5">
+<div class="card col-sm-10 offset-sm-1 pt-5 pb-5">
     
     <div class="row">
         
