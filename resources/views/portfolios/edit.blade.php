@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-sm-10 offset-1 ">
+<div class="col-sm-10 offset-sm-1">
 <h1 class="midashi">ポートフォリオ編集ページ</h1>
 </div>
-<div class="card col-sm-10 offset-1 pt-5 pb-5">
-    <div class="d-flex">
+<div class="card col-sm-10 offset-sm-1 pt-5 pb-5">
+    
     
     <div class="res">
         <div class="col-sm-5 mx-auto">
@@ -14,7 +14,7 @@
                       @if($portfolio->image == null)
                         <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
                       @else
-                        <img class="card-img-top" src={{ $portfolio->image }} alt="Card image cap">
+                        <img class="card-img-top" src={{ $portfolio->image }} onerror="this.src='/images/dummy.png';" alt="Card image cap">
                       @endif
                     <div class="card-body">
                         <h4 class="card-title">{{ $portfolio->title }}</h4>
@@ -47,11 +47,6 @@
                         <div class="form-group">
                             {!! Form::label('siteurl', 'Site URL') !!}
                             {!! Form::text('siteurl',null, ['class' => 'form-control']) !!}
-                        </div>
-                        
-                        <div class="form-group">
-                            {!! Form::label('image', 'Site Captue Path') !!}
-                            {!! Form::text('image',null, ['class' => 'form-control']) !!}
                         </div>
                         
                         

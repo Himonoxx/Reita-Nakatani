@@ -17,7 +17,7 @@
                       @if($portfolio->image == null)
                         <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
                       @else
-                        <img class="card-img-top" src={{ $portfolio->image }} alt="Card image cap">
+                        <img class="card-img-top" src={{ $portfolio->image }} onerror="this.src='/images/dummy.png';" alt="Card image cap">
                       @endif
                       <div class="card-body">
                         <h4 class="card-title">{{ $portfolio->title }}</h4>
@@ -28,6 +28,7 @@
                           @if(Auth::check())
                             @if(Auth::user()->id == $portfolio->user_id)
                               {!! link_to_route('portfolios.edit','Edit',['id'=>$portfolio->id],['class'=>'btn btn-info text-dark btn-block']) !!}
+                              {!! link_to_route('portfolios.upload','Capture Upload',['id'=>$portfolio->id],['class'=>'btn btn-info text-dark btn-block']) !!}
                             @endif
                           @endif
                         </div>
@@ -41,7 +42,7 @@
                     @if($portfolio->image == null)
                       <img class="card-img-top" src="/images/dummy.png" alt="Card image cap">
                     @else
-                      <img class="card-img-top" src={{ $portfolio->image }} alt="Card image cap">
+                      <img class="card-img-top" src={{ $portfolio->image }} onerror="this.src='/images/dummy.png';" alt="Card image cap">
                     @endif
                     <div class="card-body">
                       <h4 class="card-title">{{ $portfolio->title }}</h4>
@@ -52,6 +53,7 @@
                         @if(Auth::check())
                           @if(Auth::user()->id == $portfolio->user_id)
                             {!! link_to_route('portfolios.edit','Edit',['id'=>$portfolio->id],['class'=>'btn btn-info text-dark btn-block']) !!}
+                            {!! link_to_route('portfolios.upload','Capture Upload',['id'=>$portfolio->id],['class'=>'btn btn-info text-dark btn-block']) !!}
                           @endif
                         @endif
                     </div>

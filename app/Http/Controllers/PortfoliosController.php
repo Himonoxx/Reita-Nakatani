@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Portfolio;
 use Carbon\Carbon;
 use \Auth;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class PortfoliosController extends Controller
 {
@@ -142,14 +142,14 @@ class PortfoliosController extends Controller
     {
         
        if($request->file != null){
+            $portfolio=Portfolio::find($request->id);
                 
             $file = $request->file('file');
             $path = Storage::disk('s3')->putFile('/reitasportfolio', $file, 'public');
+            $portfolio->image=Storage::disk('s3')->url($path);
+            $portfolio->save();
         
-            dd($path);
-            
-            
-            return redirect('users.index')->with('success','保存しました。');
+            return view('users.index')->with('success','保存しました。');
 
         }else{
             return back()
@@ -158,6 +158,17 @@ class PortfoliosController extends Controller
         
         
         
+    }
+    
+    public function upload($id){
+        
+        $portfolio=Portfolio::find($id);
+        
+        return view('portfolios.upload',[
+            
+            'portfolio'=>$portfolio
+            
+            ]);
     }
     
 }

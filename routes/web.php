@@ -15,7 +15,7 @@ Route::get('/','PortfoliosController@index');
 Route::get('portfolios/portfolios','PortfoliosController@portfolios')->name('portfolios.portfolios');
 Route::get('portfolios/{id}/imagestore','PortfoliosController@imageStore')->name('portfolios.imagestore');
 Route::post('portfolios/{id}/imagestore','PortfoliosController@imageStore')->name('portfolios.imagestore');
-
+Route::get('portfolios/{id}/upload','PortfoliosController@upload')->name('portfolios.upload');
 
 Route::resource('portfolios','PortfoliosController');
 Route::resource('contacts','ContactsController');
