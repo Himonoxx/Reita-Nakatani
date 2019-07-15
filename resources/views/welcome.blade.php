@@ -112,7 +112,7 @@
                 <div class="row">
                     <div class="content col-sm-12">
                         <div class="title m-b-md center-jumbotron col-sm-12">
-                            Welcome My Portfolio.
+                            Welcome to my Portfolio.
                         </div>
         
                         <div class="links">

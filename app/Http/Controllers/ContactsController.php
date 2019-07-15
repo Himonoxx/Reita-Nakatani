@@ -113,6 +113,9 @@ class ContactsController extends Controller
     public function destroy($id)
     {
         $contact=Contact::find($id);
+        $tmp=Auth::check();
+        dd($tmp,$contact);
+        
         if(Auth::check())
         {
             $contact->delete();

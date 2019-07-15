@@ -10,9 +10,9 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item">{!! link_to_route('portfolios.portfolios','Portfolios',null,['class'=>'nav-link']) !!}</li>
-                <li class="nav-item">{!! link_to_route('abouts.index','Abouts',null,['class'=>'nav-link']) !!}</li>
+                <li class="nav-item">{!! link_to_route('abouts.index','About',null,['class'=>'nav-link']) !!}</li>
                 <li class="nav-item">{!! link_to_route('contacts.create','Contacts',null,['class'=>'nav-link']) !!}</li>
-                <li class="nav-item">{!! link_to_route('login','Developper',null,['class'=>'nav-link']) !!}</li>
+                <li class="nav-item">{!! link_to_route('users.index','Developper',null,['class'=>'nav-link']) !!}</li>
                 @if(Auth::check())
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
