@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/background.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/responsive.css">
         <title>My Portfolio</title>
 
         <!-- Fonts -->
@@ -76,11 +77,10 @@
                 position: relative;
                 z-index: 2; 
             }
-
             .links > a {
                 color: #FCFAF2;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 10px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -111,11 +111,11 @@
                     
                 <div class="row">
                     <div class="content col-sm-12">
-                        <div class="title m-b-md center-jumbotron col-sm-12">
-                            Welcome to my Portfolio.
+                        <div class="title m-b-md center-jumbotron" id="message">
+                            Welcome my Portfolio.
                         </div>
         
-                        <div class="links">
+                        <div class="links" id="links">
                             {!! link_to_route('portfolios.portfolios','Portfolios',null,['class'=>'']) !!}
                             {!! link_to_route('abouts.index','About',null,['class'=>'']) !!}
                             

@@ -1,0 +1,57 @@
+@media screen and (min-width:480px) { 
+    /*　画面サイズが480pxからはここを読み込む　*/
+    .links > a {
+                color: #FCFAF2;
+                padding: 0 25px;
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+                position: relative; 
+                z-index: 2; 
+            }
+
+}
+@media screen and (min-width:768px) and ( max-width:1024px) {
+    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    #message{
+        font-size:4vw;
+        width:60vw;
+        margin:auto;
+        }
+    .links > a {
+                color: #FCFAF2;
+                padding: 0 25px;
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+                position: relative; 
+                z-index: 2; 
+            }
+
+}
+@media screen and (min-width:1024px) {
+    /*　画面サイズが1024pxからはここを読み込む　*/
+    #message{
+        font-size:40px;
+        width:60vw;
+        margin:auto;
+        }
+    .links > a {
+                color: #FCFAF2;
+                padding: 0 25px;
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+                position: relative; 
+                z-index: 2; 
+            }
+ 
+}
+
+
