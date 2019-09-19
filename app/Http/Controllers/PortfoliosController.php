@@ -122,7 +122,7 @@ class PortfoliosController extends Controller
     
     public function portfolios()
     {
-        $portfolios=Portfolio::orderBy('created_at','desc')->get();
+        $portfolios=Portfolio::orderBy('created_at','desc')->paginate(8);
         foreach($portfolios as $portfolio){
             
                 $date=date_create($portfolio->created_at);

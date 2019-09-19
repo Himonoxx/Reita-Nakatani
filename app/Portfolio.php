@@ -18,4 +18,6 @@ class Portfolio extends Model
         return $this->belongsTo(User::class);
     }
     
+    protected $dates = ['timestamps'];
+    
 }
